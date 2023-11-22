@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link href="{% static 'styles/login.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+</head>
+<body>
+  <div class="wrapper">
+    <form class="form-signin" method="post" action="">
+        {% csrf_token %}
+      <h2 class="form-signin-heading">Login</h2>
+      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" /><br>
+      <input type="password" class="form-control" name="password" placeholder="Password" required=""/><br>
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </form>
+      {% for msg in messages %}
+      <h1>{{msg}}</h1>
+      {% endfor %}
+  </div>
+
+</body>
+</html>
