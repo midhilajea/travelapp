@@ -28,11 +28,11 @@
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start">
 						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
-							<div class="logo"><a href="index.html">Travello</a></div>
+							<div class="logo"><a href="{% url 'demoapp:home' %}">Travello</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li><a href="index.html">Home</a></li>
-									<li class="active"><a href="about.html">About us</a></li>
+									<li><a href="{% url 'demoapp:home' %}">Home</a></li>
+									<li class="" onclick="scrollToClass()"><a href="#">About Us</a></li>
 									{% if user.is_authenticated %}
 									<li>hello{{user.username}}</li>
 									<li><a href="demoapp2/logout">logout</a></li>
@@ -342,6 +342,15 @@
 										<li>Office@yourbusinessname.com</li>
 									</ul>
 								</div>
+								<script>
+									function scrollToClass() {
+										var element = document.querySelector('.footer');
+										if (element) {
+											element.scrollIntoView({ behavior: 'smooth' });
+										}
+									}
+								</script>
+							
 							</div>
 						</div>
 

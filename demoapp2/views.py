@@ -34,10 +34,10 @@ def register(request):
 
         if password==cpassword:
             if User.objects.filter(username=username).exists():
-                messages.info(request,"user name taken")
+                messages.info(request,"user name already taken")
                 return  redirect('register')
             elif User.objects.filter(email=email).exists():
-                messages.info(request,"email taken")
+                messages.info(request,"email already taken")
                 return  redirect('register')
             else:
                 user = User.objects.create_user(username=username, password=password, first_name=first_name,
